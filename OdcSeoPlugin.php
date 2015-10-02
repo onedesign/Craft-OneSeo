@@ -8,7 +8,7 @@ class OdcSeoPlugin extends BasePlugin
 {
     public function getName()
     {
-        return Craft::t('ODC SEO');
+        return Craft::t('SEO');
     }
 
     public function getVersion()
@@ -29,7 +29,15 @@ class OdcSeoPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-
+          'titleDividerCharacter' => array(
+              AttributeType::String, 'label' => 'Meta Title Divider Character', 'default' => '–'
+          ),
+          'defaultMetaDescription' => array(
+              AttributeType::String, 'label' => 'Default Meta Description'
+          ),
+          'defaultMetaTitle' => array(
+              AttributeType::String, 'label' => 'Default Meta Title'
+          )
         );
     }
 
@@ -38,15 +46,10 @@ class OdcSeoPlugin extends BasePlugin
         craft()->odcSeo->run();
     }
 
-    public function onBeforeUninstall()
-    {
-        craft()->odcSeo->destroyFieldGroup();
-    }
-
     public function getSettingsHtml()
     {
-       return craft()->templates->render('odcseo/settings', array(
+        return craft()->templates->render('odcseo/settings', array(
            'settings' => $this->getSettings()
-       ));
+        ));
     }
 }
