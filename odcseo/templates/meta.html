@@ -1,7 +1,7 @@
-<title>{{ title }}</title>
-<meta name="description" content="{{ description }}">
+<title>{{ pageTitle }}</title>
+{% if description is defined %}<meta name="description" content="{{ description }}">{% endif %}
 
-<meta property="og:title" content="{{ title }}" />
+<meta property="og:title" content="{{ pageTitle }}" />
 <meta property="og:site_name" content="{{ siteName }}" />
 <meta property="og:type" content="website" />
 {% if image is defined %}<meta property="og:image" content="{{ image }}" />{% endif %}
@@ -11,6 +11,6 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="{{ url }}">
-<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:title" content="{{ pageTitle }}">
 {% if description is defined %}<meta name="twitter:description" content="{{ description }}">{% endif %}
 {% if image is defined %}<meta name="twitter:image" content="{{ image }}">{% endif %}
