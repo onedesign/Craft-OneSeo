@@ -2,18 +2,15 @@
 <meta name="description" content="{{ description }}">
 
 <meta property="og:title" content="{{ title }}" />
+<meta property="og:site_name" content="{{ siteName }}" />
 <meta property="og:type" content="website" />
-{% if image is defined %}
-<meta property="og:image" content="{{ image }}" />
-{% endif %}
+{% if image is defined %}<meta property="og:image" content="{{ image }}" />{% endif %}
 <meta property="og:url" content="{{ url }}" />
-<meta property="og:description" content="{{ description }}" />
+{% if description is defined %}<meta property="og:description" content="{{ description }}" />{% endif %}
 <meta property="fb:admins" content="USER_ID" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="{{ url }}">
 <meta name="twitter:title" content="{{ title }}">
-<meta name="twitter:description" content="{{ description }}">
-{% if image is defined %}
-<meta name="twitter:image" content="{{ image }}">
-{% endif %}
+{% if description is defined %}<meta name="twitter:description" content="{{ description }}">{% endif %}
+{% if image is defined %}<meta name="twitter:image" content="{{ image }}">{% endif %}

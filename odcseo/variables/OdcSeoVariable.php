@@ -13,7 +13,6 @@ class OdcSeoVariable
 
         $metaData = [
           'title' => $pluginSettings->defaultMetaTitle,
-          'description' => $pluginSettings->defaultMetaDescription,
           'url' => craft()->getSiteUrl()
         ];
 
