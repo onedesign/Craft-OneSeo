@@ -1,0 +1,25 @@
+{% import "_includes/forms" as forms %}
+
+<h1>Setup</h1>
+
+<p>When this plugin was installed, it automatically created a field group called <em>SEO</em>. You’ll need to manually add this field group to all sections that you’d like customizable SEO for. <a href="/admin/settings/sections">Go to Sections</a></p>
+
+<p>Your <em>Site Name</em> will be used as the <code>&lt;title&gt;</code> for the homepage, and will be added to the title for all other pages, so make sure you set that appropriately. <a href="/admin/settings/general">Edit Site Name</a></p>
+
+<h1 style="margin-top: 1em;">Settings</h1>
+
+<div class="field">
+  <div class="heading">
+    <label for="titleDividerCharacter">Title Divider Character</label>
+    <div class="instructions">
+      <p>If the meta title has multiple levels of hierarchy, this character will be used to divide them. Example: <em>How We Work – ABC Incorporated</em></p>
+    </div>
+  </div>
+  <div class="input">
+    {{ forms.text({
+        id:     "titleDividerCharacter",
+        name:   "titleDividerCharacter",
+        value:  settings.titleDividerCharacter
+    }) }}
+  </div>
+</div>

@@ -31,12 +31,6 @@ class OdcSeoPlugin extends BasePlugin
         return array(
           'titleDividerCharacter' => array(
               AttributeType::String, 'label' => 'Meta Title Divider Character', 'default' => '–'
-          ),
-          'defaultMetaDescription' => array(
-              AttributeType::String, 'label' => 'Default Meta Description'
-          ),
-          'defaultMetaTitle' => array(
-              AttributeType::String, 'label' => 'Default Meta Title'
           )
         );
     }

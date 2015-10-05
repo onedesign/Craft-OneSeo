@@ -12,24 +12,20 @@ class OdcSeoVariable
         $pluginSettings = craft()->plugins->getPlugin('odcSeo')->getSettings();
 
         $metaData = [
-          'title' => $pluginSettings->defaultMetaTitle,
-          'description' => $pluginSettings->defaultMetaDescription,
-          'url' => craft()->getSiteUrl()
+          'url' => craft()->getSiteUrl(),
+          'pageTitle' => craft()->siteName
         ];
 
         $element = craft()->urlManager->getMatchedElement();
 
         if ($element && $element->getElementType() == ElementType::Entry)
         {
-            // Make a copy of the default meta data
-            $entryMeta = $metaData;
-
             // Look for a custom SEO title
-            $title = $element->title;
+            $pageTitle = $element->title;
             $customTitle = $element->seoTitle;
-            if (strlen($customTitle)) $title = $customTitle;
-            if (strlen($pluginSettings->defaultMetaTitle)) $title . ' ' . $pluginSettings->titleDividerCharacter . ' ' . $pluginSettings->defaultMetaTitle;
-            $metaData['title'] = $title;
+            if (strlen($customTitle)) $pageTitle = $customTitle;
+            $pageTitle = $pageTitle . ' ' . $pluginSettings->titleDividerCharacter . ' ' . craft()->siteName;
+            $metaData['pageTitle'] = $pageTitle;
 
             // Look for a custom SEO description
             $customDescription = $element->seoMetaDescription;
