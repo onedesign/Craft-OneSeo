@@ -1,0 +1,12 @@
+{
+    "name": "onedesign/odcseo",
+    "description": "A small SEO plugin for craft.",
+    "authors": [
+        {
+            "name": "One Design Company",
+            "email": "dev@onedesigncompany.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
