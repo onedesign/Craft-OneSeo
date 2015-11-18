@@ -4,7 +4,7 @@ namespace Craft;
 /**
  * Doblin Plugin
  */
-class OdcSeoPlugin extends BasePlugin
+class OneSeoPlugin extends BasePlugin
 {
     public function getName()
     {
@@ -37,12 +37,12 @@ class OdcSeoPlugin extends BasePlugin
 
     public function onAfterInstall()
     {
-        craft()->odcSeo->run();
+        craft()->oneSeo->run();
     }
 
     public function getSettingsHtml()
     {
-        return craft()->templates->render('odcseo/settings', array(
+        return craft()->templates->render('oneseo/settings', array(
            'settings' => $this->getSettings()
         ));
     }
