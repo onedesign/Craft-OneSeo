@@ -1,6 +1,8 @@
 {
     "name": "onedesign/odcseo",
     "description": "A small SEO plugin for craft.",
+    "type": "craft-plugin",
+    "keywords": ["craft","plugin"],
     "authors": [
         {
             "name": "One Design Company",
@@ -8,5 +10,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "composer/installers": "~1.0"
+    }
 }
