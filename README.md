@@ -17,7 +17,7 @@ To install via Composer:
 ```
 {
     "require": {
-        "onedesign/oneseo": "~1.0"
+        "onedesign/oneseo": "x.x.x"
     }
 }
 ```
