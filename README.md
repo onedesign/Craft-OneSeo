@@ -17,7 +17,7 @@ To install via Composer:
 ```
 {
     "require": {
-        "onedesign/odcseo": "~1.0"
+        "onedesign/oneseo": "~1.0"
     }
 }
 ```
@@ -26,7 +26,7 @@ To install via Composer:
 To install without composer:
 
 1. Download the latest release.
-2. Rename the uncompressed folder to `odcseo`
+2. Rename the uncompressed folder to `oneseo`
 3. Place that folder into your `craft/plugins` folder
 
 
@@ -41,5 +41,5 @@ To install without composer:
 To add the necessary title and meta information to your pages, add the following to the `<head>` in each of your craft layout templates:
 
 ```
-{{ craft.odcSeo.meta }}
+{{ craft.oneSeo.meta }}
 ```

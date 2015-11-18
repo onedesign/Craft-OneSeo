@@ -1,6 +1,6 @@
 <?php
 namespace Craft;
-class OdcSeoVariable
+class OneSeoVariable
 {
     /**
      * Output combined meta information
@@ -9,7 +9,7 @@ class OdcSeoVariable
      */
     public function meta()
     {   
-        $pluginSettings = craft()->plugins->getPlugin('odcSeo')->getSettings();
+        $pluginSettings = craft()->plugins->getPlugin('oneSeo')->getSettings();
 
         $metaData = [
           'url' => craft()->getSiteUrl(),
@@ -61,7 +61,7 @@ class OdcSeoVariable
         }
 
         $originalPath = craft()->path->getTemplatesPath();
-        $pluginTemplatePath = craft()->path->getPluginsPath() . 'odcseo/templates';
+        $pluginTemplatePath = craft()->path->getPluginsPath() . 'oneseo/templates';
         craft()->path->setTemplatesPath($pluginTemplatePath);
         $html = craft()->templates->render('meta', $metaData);
         craft()->path->setTemplatesPath($originalPath);
