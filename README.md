@@ -31,10 +31,11 @@ To install without composer:
 
 
 ## Setup
-1. Go to _Settings > Plugins_ from your Craft control panel and enable the _SEO_ plugin.
-2. Open the settings for the plugin and customize your settings
-3. The plugin automatically adds an _SEO_ field group to Craft and adds this field group to every entry type with a url.
-4. Go through each of your entries and optionally customize the title, description, and image.
+1. Backup your database (just in case).
+2. Go to _Settings > Plugins_ from your Craft control panel and enable the _SEO_ plugin.
+3. Upon installation, the plugin automatically adds an _SEO_ field group to Craft and adds this field group to every entry type with a url.
+4. Open the settings for the plugin and customize your settings
+5. Go through each of your entries and optionally customize the title, description, and image.
 
 ## Templating
 
