@@ -62,15 +62,18 @@ class OneSeoVariable
         // Override defaults with template customizations
         // Title…
         $dividerChar = ' ' . $pluginSettings->titleDividerCharacter . ' ';
-        $customTemplateTitle = craft()->oneSeo_meta->getMetaTitle();
-        if ($customTemplateTitle) $metaData['pageTitle'] = implode($dividerChar, $customTemplateTitle);
+        if ($customTemplateTitle = craft()->oneSeo_meta->getMetaTitle()) {
+            $metaData['pageTitle'] = implode($dividerChar, $customTemplateTitle);
+        }
         // Description…
-        $customTemplateDescription = craft()->oneSeo_meta->getMetaDescription();
-        if ($customTemplateDescription) $metaData['description'] = $customTemplateDescription;
+        if ($customTemplateDescription = craft()->oneSeo_meta->getMetaDescription()) {
+            $metaData['description'] = $customTemplateDescription;
+        }
         // Image…
-        $customTemplateImage = craft()->oneSeo_meta->getMetaImage();
-        if ($customTemplateImage) $metaData['image'] = $customTemplateImage;
-
+        if ($customTemplateImage = craft()->oneSeo_meta->getMetaImage()) {
+            $metaData['image'] = $customTemplateImage;
+        }
+        
         // Concatenate the full title
         if ($metaData['pageTitle'] != craft()->siteName) {
           $metaData['pageTitle'] = $metaData['pageTitle'] . $dividerChar . craft()->siteName;
