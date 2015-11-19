@@ -2,7 +2,7 @@
 namespace Craft;
 
 /**
- * Doblin Plugin
+ * One SEO Plugin
  */
 class OneSeoPlugin extends BasePlugin
 {
@@ -45,5 +45,26 @@ class OneSeoPlugin extends BasePlugin
         return craft()->templates->render('oneseo/settings', array(
            'settings' => $this->getSettings()
         ));
+    }
+
+    public function init()
+    {
+      craft()->templates->hook('getSeoMeta', function(&$context)
+      {   
+          if (isset($context['customMetaTitle']))
+          {
+            craft()->oneSeo_meta->setMetaTitle($context['customMetaTitle']);
+          }
+
+          if (isset($context['customMetaDescription']))
+          {
+            craft()->oneSeo_meta->setMetaDescription($context['customMetaDescription']);
+          }
+          
+          if (isset($context['customMetaImage']))
+          {
+            craft()->oneSeo_meta->setMetaImage($context['customMetaImage']);
+          }
+      });
     }
 }

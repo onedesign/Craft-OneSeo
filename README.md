@@ -42,5 +42,23 @@ To install without composer:
 To add the necessary title and meta information to your pages, add the following to the `<head>` in each of your craft layout templates:
 
 ```
+{% hook "getSeoMeta" %}
 {{ craft.oneSeo.meta }}
+```
+
+### Customizing meta details per page
+
+From within any page template, you can customize the output of `{{ craft.oneSeo.meta }}` just by setting a few variables: `customMetaTitle`, `customMetaDescription` and `customMetaImage`.
+
+```twig
+{% set customMetaTitle = 'My Custom Title' %}
+{% set customMetaDescription = 'My very special meta' %}
+{% set customMetaImage = entry.featuredImageField.first.url %}
+```
+
+For the `customMetaTitle` you can also use an array of strings, which will be combined with the "Title Divider Character" set in the CMS:
+
+```twig
+{% set customMetaTitle = ['My Custom Title', 'Some Section'] %}
+{# Results in 'My Custom Title – Some Section – Site Name' #}
 ```
