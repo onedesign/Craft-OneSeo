@@ -14,14 +14,10 @@ class OneSeo_MetaService extends BaseApplicationComponent
 
   public function setMetaTitle($title)
   {
-    if (is_array($title))
-    {
-      $this->meta['metaTitle'] = $title;
+    if (!is_array($title)) {
+      $title = array($title);
     }
-    elseif (is_string($title))
-    {
-      $this->meta['metaTitle'][0] = $title;
-    }
+    $this->meta['metaTitle'] = $title;
   }
 
   public function getMetaTitle()
