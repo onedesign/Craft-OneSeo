@@ -55,3 +55,10 @@ From within any page template, you can customize the output of `{{ craft.oneSeo.
 {% set customMetaDescription = 'My very special meta' %}
 {% set customMetaImage = entry.featuredImageField.first.url %}
 ```
+
+For the `customMetaTitle` you can also use an array of strings, which will be combined with the "Title Divider Character" set in the CMS:
+
+```twig
+{% set customMetaTitle = ['My Custom Title', 'Some Section'] %}
+{# Results in 'My Custom Title – Some Section – Site Name' #}
+```
