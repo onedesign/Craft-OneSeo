@@ -24,10 +24,9 @@ class OneSeoVariable
             $pageTitle = $element->title;
             $customTitle = $element->seoTitle;
             if (strlen($customTitle)) $pageTitle = $customTitle;
-            $pageTitle = $pageTitle . ' ' . $pluginSettings->titleDividerCharacter . ' ' . craft()->siteName;
             $metaData['pageTitle'] = $pageTitle;
 
-            // Look for a custom SEO description
+            // Look for a custom SEO description in CMS
             $customDescription = $element->seoMetaDescription;
             if (strlen($customDescription)) $metaData['description'] = $customDescription;
 
@@ -59,6 +58,24 @@ class OneSeoVariable
             // Set URL
             $metaData['url'] = $element->url;
         }
+
+        // Override defaults with template customizations
+        // Title…
+        $dividerChar = ' ' . $pluginSettings->titleDividerCharacter . ' ';
+        $customTemplateTitle = craft()->oneSeo_meta->getMetaTitle();
+        if ($customTemplateTitle) $metaData['pageTitle'] = implode($dividerChar, $customTemplateTitle);
+        // Description…
+        $customTemplateDescription = craft()->oneSeo_meta->getMetaDescription();
+        if ($customTemplateDescription) $metaData['description'] = $customTemplateDescription;
+        // Image…
+        $customTemplateImage = craft()->oneSeo_meta->getMetaImage();
+        if ($customTemplateImage) $metaData['image'] = $customTemplateImage;
+
+        // Concatenate the full title
+        if ($metaData['pageTitle'] != craft()->siteName) {
+          $metaData['pageTitle'] = $metaData['pageTitle'] . $dividerChar . craft()->siteName;
+        }
+
 
         $originalPath = craft()->path->getTemplatesPath();
         $pluginTemplatePath = craft()->path->getPluginsPath() . 'oneseo/templates';
