@@ -8,7 +8,7 @@ class OneSeoVariable
      * @return string
      */
     public function meta()
-    {   
+    {
         $pluginSettings = craft()->plugins->getPlugin('oneSeo')->getSettings();
 
         $metaData = [
@@ -54,7 +54,7 @@ class OneSeoVariable
                     }
                 }
             }
-            
+
             // Set URL
             $metaData['url'] = $element->url;
         }
@@ -73,7 +73,7 @@ class OneSeoVariable
         if ($customTemplateImage = craft()->oneSeo_meta->getMetaImage()) {
             $metaData['image'] = $customTemplateImage;
         }
-        
+
         // Concatenate the full title
         if ($metaData['pageTitle'] != craft()->siteName) {
           $metaData['pageTitle'] = $metaData['pageTitle'] . $dividerChar . craft()->siteName;
@@ -86,5 +86,11 @@ class OneSeoVariable
         $html = craft()->templates->render('meta', $metaData);
         craft()->path->setTemplatesPath($originalPath);
         echo $html;
+    }
+
+    public function facebookAppId()
+    {
+      $pluginSettings = craft()->plugins->getPlugin('oneSeo')->getSettings();
+      return $pluginSettings->facebookAppId;
     }
 }
