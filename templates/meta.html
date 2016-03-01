@@ -7,7 +7,9 @@
 {% if image is defined %}<meta property="og:image" content="{{ image }}" />{% endif %}
 <meta property="og:url" content="{{ url }}" />
 {% if description is defined %}<meta property="og:description" content="{{ description }}" />{% endif %}
-<meta property="fb:admins" content="USER_ID" />
+{% if craft.oneseo.facebookAppId | length  %}
+  <meta property="fb:app_id" content="{{ craft.oneseo.facebookAppId }}" />
+{% endif %}
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="{{ url }}">

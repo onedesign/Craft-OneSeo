@@ -31,6 +31,9 @@ class OneSeoPlugin extends BasePlugin
         return array(
           'titleDividerCharacter' => array(
               AttributeType::String, 'label' => 'Meta Title Divider Character', 'default' => '–'
+          ),
+          'facebookAppId' => array(
+            AttributeType::String, 'label' => 'Facebook App ID'
           )
         );
     }
@@ -50,7 +53,7 @@ class OneSeoPlugin extends BasePlugin
     public function init()
     {
       craft()->templates->hook('getSeoMeta', function(&$context)
-      {   
+      {
           if (isset($context['customMetaTitle']))
           {
             craft()->oneSeo_meta->setMetaTitle($context['customMetaTitle']);
@@ -60,7 +63,7 @@ class OneSeoPlugin extends BasePlugin
           {
             craft()->oneSeo_meta->setMetaDescription($context['customMetaDescription']);
           }
-          
+
           if (isset($context['customMetaImage']))
           {
             craft()->oneSeo_meta->setMetaImage($context['customMetaImage']);
