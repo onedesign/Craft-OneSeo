@@ -23,3 +23,19 @@
     }) }}
   </div>
 </div>
+
+<div class="field">
+  <div class="heading">
+    <label for="titleDividerCharacter">Facebook App ID</label>
+    <div class="instructions">
+      <p>If you register a Facebook app at <a href="https://developers.facebook.com">the Facebook Developers page</a> we will insert an additional tag that allows you to take advantage of <a href="https://developers.facebook.com/docs/platforminsights/domains">Facebook Domain Insights</a></p>
+    </div>
+  </div>
+  <div class="input">
+    {{ forms.text({
+        id:     "facebookAppId",
+        name:   "facebookAppId",
+        value:  settings.facebookAppId
+    }) }}
+  </div>
+</div>
