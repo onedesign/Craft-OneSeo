@@ -54,10 +54,10 @@ class OneSeoVariable
                     }
                 }
             }
-
-            // Set URL
-            $metaData['url'] = $element->url;
         }
+
+        // Set URL
+        $metaData['url'] = craft()->request->getHostInfo().craft()->request->getRequestUri();
 
         // Override defaults with template customizations
         // Title…
